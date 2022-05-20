@@ -46,10 +46,6 @@ router.post('/singup', async (req, res) => {
         }
         users.push(user)
         res.status(200).send('Usuário cadastrado com sucesso')
-        /**
-        const verifyEmail = await runEmail(user.name, userToken, user.email)
-        res.status(200).send(verifyEmail)
-         */
     } catch (error) {
         res.status(500).send(error);
     }
