@@ -14,7 +14,7 @@ const transporter = nodemailer.createTransport({
     secure: false,
     auth: {
         user: process.env.USER,
-        pass: process.env.PASS
+        pass: process.env.PASS_APP
     },
     tls: {
         rejectUnauthorized: false
@@ -65,6 +65,7 @@ router.post('/login', async (req, res) => {
                 {expiresIn:8900}
             )
             const verifyEmail = await runEmail(token, email)
+            console.log(verifyEmail)
             res.status(200).send('Autenticação Realizada com Sucesso - Siga sua jornada por Email')
         } else {
             res.status(500).send('Usuário não encontrado')
